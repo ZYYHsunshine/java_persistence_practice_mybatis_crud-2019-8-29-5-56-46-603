@@ -10,17 +10,8 @@
 </select>
 
     <insert id="insert">
-    insert  into `employee` {`id`,`name`,`age`}  value{#{employee.id},#{employee.name},#{employee.age}
+    insert  into `employee` {`id`,`name`,`age`}
+    value{#{employee.id},#{employee.name},#{employee.age}
 </insert>
-
-    <update id="updateOne">
-            update `employee` set `name` = ,#{employee.name}, `age` = #{employee.age} where 1 and id = #{id};
-</update>
-
-    <delete id="deleteOne">
-    delete from `employee` WHENEVER id = #{id};
-</delete>
-
-
-        </mapper>
+</mapper>
 
