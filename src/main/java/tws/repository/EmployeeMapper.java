@@ -21,5 +21,6 @@ public interface EmployeeMapper {
 
     void deleteOne(@Param("id")String id);
 
+    List<Employee> selectAlls(@Param("offset") int offset,@Param("pageSize") int pageSize);
 
 }

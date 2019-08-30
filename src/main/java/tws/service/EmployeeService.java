@@ -2,9 +2,12 @@ package tws.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import tws.dto.EmployeeDto;
 import tws.entity.Employee;
 import tws.repository.EmployeeMapper;
+
+import java.util.List;
 
 @Service
 public class EmployeeService {
@@ -27,5 +30,11 @@ public class EmployeeService {
        employeeDto.setDesc(desc);
        return  employeeDto;
    }
+
+    public List<Employee> getEmployees(int page, int pageSize){
+        int offset = (page-1)*pageSize;
+        List list = employeeMapper.selectAlls(offset,pageSize);
+        return list;
+    }
 
 }

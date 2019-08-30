@@ -61,4 +61,12 @@ public class EmployeeController {
         EmployeeDto employeeDto = employeeService.getEmployWithDesc(id);
         return ResponseEntity.ok(employeeDto);
     }
+
+    @GetMapping("")
+    public ResponseEntity<List<Employee>> getAll(
+            @RequestParam(required = false) int page,
+            @RequestParam(required = false) int pageSize) {
+
+        return ResponseEntity.ok(employeeService.getEmployees(page,pageSize));
+    }
 }

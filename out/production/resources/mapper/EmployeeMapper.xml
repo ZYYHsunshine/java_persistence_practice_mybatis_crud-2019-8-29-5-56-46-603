@@ -13,5 +13,22 @@
     insert  into `employee` {`id`,`name`,`age`}
     value{#{employee.id},#{employee.name},#{employee.age}
 </insert>
+
+    <update id="updateOne">
+            update `employee` set `name` = ,#{employee.name}, `age` = #{employee.age} where 1 and id = #{id};
+</update>
+
+    <delete id="deleteOne">
+    delete from `employee` WHENEVER id = #{id};
+</delete>
+
+    <select id="selectAlls" resultType="tws.entity.Employee">
+        select *from `employee`
+        <if test="keyword != null">
+            <bind name="pattern" value="`%`+keyword+`%`"/>
+            where `name` like #{pattern}
+        </if>
+    </select>
+
 </mapper>
 
